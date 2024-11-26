@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>FB Helper</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Poppins:wght@400;700&display=swap">
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+      background-color: #f4f4f9;
+      margin: 0;
+      padding: 0;
+      color: #333;
+      transition: background-color 0.3s, color 0.3s, scroll-behavior 0.3s;
+      scroll-behavior: smooth;
+    }
+    .container {
+      max-width: 900px;
+      margin: 50px auto;
+      padding: 20px;
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      transition: background-color 0.3s, color 0.3s;
+    }
+    h1 {
+      color: #4267B2;
+      margin-bottom: 20px;
+      font-size: 2.8em;
+      font-weight: 700;
+      font-family: 'Poppins', sans-serif;
+      transition: color 0.3s;
+    }
+    h2 {
+      color: #4267B2;
+      margin-bottom: 15px;
+      font-size: 2.2em;
+      font-family: 'Poppins', sans-serif;
+    }
+    p {
+      margin-bottom: 30px;
+      font-size: 1.2em;
+      color: #555;
+      transition: color 0.3s;
+    }
+    .btn {
+      display: inline-block;
+      margin: 10px;
+      padding: 15px 25px;
+      border: none;
+      border-radius: 8px;
+      text-decoration: none;
+      font-size: 1.2em;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+    .btn-main {
+      background-color: #FFCC00;
+      color: #000;
+      font-weight: bold;
+      animation: blink 1.5s infinite;
+    }
+    .btn-main:hover {
+      background-color: #FFB300;
+      transform: scale(1.05);
+    }
+    .btn-main:active {
+      background-color: #FF9800;
+    }
+    .btn-highlighted {
+      color: #FFCC00;
+      font-weight: bold;
+    }
+    .btn-highlightedto {
+      color: #1b2be0;
+      font-weight: bold;
+    }
+    .btn-report {
+      background-color: #FF5722;
+      color: white;
+    }
+    .btn-report:hover {
+      background-color: #E64A19;
+    }
+    .btn-appeal {
+      background-color: #4CAF50;
+      color: white;
+    }
+    .btn-appeal:hover {
+      background-color: #388E3C;
+    }
+    .btn-feedback {
+      background-color: #2196F3;
+      color: white;
+    }
+    .btn-feedback:hover {
+      background-color: #1976D2;
+    }
+    .section {
+      margin: 40px 0;
+      padding: 20px;
+      background-color: #f9f9f9;
+      border-radius: 8px;
+      border: 1px solid #ddd;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    .section h2 {
+      font-size: 2.2em;
+      font-family: 'Poppins', sans-serif;
+    }
+    .section p {
+      font-size: 1.2em;
+      color: #555;
+      line-height: 1.7;
+    }
+    .section ul {
+      list-style: disc;
+      margin: 0;
+      padding-left: 20px;
+      text-align: left;
+    }
+    .section li {
+      margin-bottom: 10px;
+    }
+    .section img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      loading: lazy;
+    }
+    .notification {
+      background-color: #5c1d2e;
+      color: #D4E157;
+      padding: 20px;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    .footer {
+      background-color: #4267B2;
+      color: white;
+      padding: 5px 0;
+      text-align: center;
+      border-top: 1px solid #ddd;
+      position: relative;
+      bottom: 0;
+      width: 100%;
+      font-family: 'Roboto', sans-serif;
+    }
+    .footer a {
+      color: white;
+      margin: 0 10px;
+      text-decoration: none;
+      font-size: 1.2em;
+      transition: text-decoration 0.3s;
+    }
+    .footer a:hover {
+      text-decoration: underline;
+    }
+    .footer p {
+      margin: 10px 0;
+      font-size: 1em;
+    }
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 2em;
+      }
+      .btn {
+        font-size: 1em;
+        padding: 10px 20px;
+      }
+      .section h2 {
+        font-size: 1.8em;
+      }
+      .section p {
+        font-size: 1em;
+      }
+      .footer p {
+        font-size: 0.9em;
+      }
+      .footer a {
+        font-size: 1em;
+      }
+    }
+    @keyframes blink {
+      0% { opacity: 1; }
+      50% { opacity: 0.5; }
+      100% { opacity: 1; }
+    }
+    /* Dark mode styles */
+    .dark-mode {
+      background-color: #333;
+      color: #f4f4f4;
+    }
+    .dark-mode .container {
+      background: #444;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    }
+    .dark-mode h1 {
+      color: #FFCC00;
+    }
+    .dark-mode p, .dark-mode .section {
+      color: #f4f4f4;
+    }
+    .dark-mode .btn {
+      color: #f4f4f4;
+    }
+    .dark-mode .btn-main {
+      background-color: #FFB300;
+    }
+    .dark-mode .btn-main:hover {
+      background-color: #FF9800;
+    }
+    .dark-mode .btn-report {
+      background-color: #E64A19;
+    }
+    .dark-mode .btn-appeal {
+      background-color: #388E3C;
+    }
+    .dark-mode .btn-feedback {
+      background-color: #1976D2;
+    }
+    /* Dark mode icon */
+    .dark-mode-toggle {
+      position: fixed;
+      top: 10px;
+      right: 10px;
+      font-size: 24px;
+      cursor: pointer;
+      color: #333;
+      transition: color 0.3s;
+    }
+    .dark-mode-toggle:hover {
+      color: #666;
+    }
+  </style>
+</head>
+<body>
+  <script src="popup.js" defer></script>
+  
+  <div class="container">
+    <h1>FB Helper</h1>
+    <p>Welcome to FB Helper! <br>Our extension is designed to help you easily manage and resolve Facebook page issues.<br> Click the button below to <span class="btn-highlightedto">START THE FB HELPER</span> and start managing your account effectively.</p>
+    <button id="loginButton" class="btn btn-main">START THE FB HELPER</button><br><br>
+    <div class="notification">
+      <p>After starting the FB Helper, you can use the extension to report, appeal, and provide feedback directly from here.</p>
+    </div>
+    <a href="https://web.facebook.com/help/contact/268228883256323" class="btn btn-report">Report</a>
+    <a href="https://web.facebook.com/help/contact/151371415454526" class="btn btn-appeal">Appeal</a>
+    <a href="https://web.facebook.com/help/contact/507287962650443" class="btn btn-feedback">Feedback</a>
+  </div>
+
+  <div class="container section">
+    <h2>About FB Helper</h2>
+    <img src="icons/feature.jpg" alt="FB Helper Overview">
+    <p>FB Helper simplifies managing your Facebook business account by offering direct links to essential tools. You can easily:</p>
+    <ul>
+      <li><strong>Report Issues:</strong> Quickly report problems like monetization restrictions, unoriginal content issues, policy violations, partner monetization issues, content monetization issues, and many more.</li>
+      <li><strong>Appeal Decisions:</strong> Submit appeals for any decisions affecting your account, page, or content, including monetization and policy issues.</li>
+      <li><strong>Provide Feedback:</strong> Share your thoughts and suggestions to help us improve our services and address any concerns you may have.</li>
+    </ul>
+    <img src="icons/report.jpg" alt="Reporting Issues">
+    <img src="icons/appeal.jpg" alt="Appeal Decisions">
+  </div>
+  
+  <div class="container section">
+    <h2>Features</h2>
+    <img src="icons/feature.jpg" alt="Features Image">
+    <p>FB Helper provides easy access to essential tools and resources for managing your Facebook page or business account. Our extension (FB Helper) offers a streamlined interface to:</p>
+    <ul>
+      <li><strong>Report Issues:</strong> Quickly report any issues you're experiencing with your account or page.</li>
+      <li><strong>Appeal Decisions:</strong> Submit appeals for any decisions affecting your account or page content, including monetization and policy issues.</li>
+      <li><strong>Provide Feedback:</strong> Share your thoughts and suggestions to help us improve our services.</li>
+    </ul>
+    <img src="icons/report.jpg" alt="Reporting Image">
+    <img src="icons/appeal.jpg" alt="Appeal Image">
+  </div>
+
+  <div class="container section">
+    <h2>Benefits</h2>
+    <img src="icons/benifit.jpg" alt="Benefits of FB Helper">
+    <p>By using FB Helper, you will enjoy a range of benefits designed to simplify and enhance your experience:</p>
+    <ul>
+      <li><strong>Monetization Issue Resolution:</strong> Easily address monetization restrictions and policy issues affecting your page or account content.</li>
+      <li><strong>Unoriginal Content Problems:</strong> Report and appeal issues related to unoriginal content with ease.</li>
+      <li><strong>Policy Compliance:</strong> Ensure your content complies with Facebook’s monetization and partner policies.</li>
+      <li><strong>Convenience:</strong> Access all the necessary tools and support from one central location.</li>
+      <li><strong>Efficiency:</strong> Save time with direct links to reporting, appealing, and feedback forms.</li>
+      <li><strong>Support:</strong> Get prompt assistance and responses to your issues and inquiries.</li>
+      <li><strong>Improved Experience:</strong> Contribute to improving the service by providing valuable feedback.</li>
+    </ul>
+    <img src="icons/support.png" alt="Support Image">
+  </div>
+
+  <div class="footer">
+    <p>&copy; 2024 FB Helper. All rights reserved.</p>
+    <p>
+      <a href="https://www.facebook.com/privacy/explanation" target="_blank">Privacy Policy</a> |
+      <a href="https://www.facebook.com/legal/terms" target="_blank">Terms of Service</a>
+    </p>
+  </div>
+</body>
+<script src="newpopup.js" defer></script>
+</body>
+</html>>>>
